@@ -1,3 +1,5 @@
+$theme-color: #412620;
+$theme-bg-color:#3E2F26;
 .hero {
     position: relative;
     display: flex;
@@ -34,6 +36,7 @@
 }
 
 .leading {
+    color:$theme-color;
     background-color: #F2E9E8;
 }
 
@@ -63,8 +66,51 @@
 }
 
 .lead {
+    color:$theme-color;
     @include media-breakpoint-down(lg) {
         font-size: rfs-fluid-value(1rem);
       }
       
+}
+
+.subscribe {
+    position:relative;
+    background-color:$theme-bg-color;
+    display: flex;
+    button {
+        background-color:$theme-color;
+        border-color:$theme-color;
+        &:hover {
+            background-color:darken($theme-color,5%);
+            border-color:darken($theme-color,5%);
+        }
+    }
+
+    form {
+        background:rgba(255,255,255,0.95);
+    }
+
+    &__image {
+        background-image: url('../img/mae-mu-b75BTzDab9U-unsplash-1920x1280.jpg');
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+    &__scrim {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(0,0,0,0.8);
+    }
+
+    &__text {
+        z-index:1;
+    }
 }

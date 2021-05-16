@@ -38,7 +38,7 @@
         </div>
       </div>
     </section>
-    <section class="content content--reverse">
+    <section class="content content--reverse mb-sm-2 mb-md-4 mb-lg-5">
       <div class="container-fluid">
         <div class="row row-cols-1 row-cols-sm-2 content__row">
           <div class="col p-4 p-sm-3 p-md-4 p-lg-5 text-center d-flex align-items-center">
@@ -53,6 +53,33 @@
               <img class="content__image" src="<%= require('./img/rr-abrot-pNIgH0y3upM-unsplash-flip-dark-1200x588.jpg') %>" />
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+    <section class="subscribe pt-2 pb-2 p-sm-5">
+      <div class="subscribe__image"></div>
+      <div class="subscribe__scrim"></div>
+      <div class="container subscribe__text">
+        <div class="row">
+          <form class="col-md-8 col-lg-6 p-4 p-lg-5 mx-auto">
+            <div class="row mb-3">
+              <label for="inputName" class="col-2 col-form-label">Name</label>
+              <div class="col-10">
+                <input type="text" placeholder="Name" class="form-control" id="inputName">
+              </div>
+            </div>
+            <div class="row mb-3">
+              <label for="inputEmail" class="col-2 col-form-label">Email</label>
+              <div class="col-10">
+                <input type="email" placeholder="Email Address" class="form-control" id="inputEmail">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-10 offset-2">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </div>
+          </form>
         </div>
       </div>
     </section>
