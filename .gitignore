@@ -1,3 +1,7 @@
+#misc
+.vscode
+temp
+
 # Logs
 logs
 *.log
