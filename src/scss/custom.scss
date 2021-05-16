@@ -1,0 +1,70 @@
+.hero {
+    position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    background-color: #ccc;
+    height: 75vh;
+    min-height: 320px;
+
+    &__image {
+        background-image: url('../img/battlecreek-coffee-roasters-SscdUnyrM9I-unsplash-vibr-1920x1268.jpg');
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+    &__scrim {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(0,0,0,0.3);
+    }
+
+    &__text {
+        z-index:1;
+    }
+}
+
+.leading {
+    background-color: #F2E9E8;
+}
+
+.content {
+    $content: &;
+    &__image-frame {
+        width:100%;
+        height:auto;
+        max-height: 380px;
+        overflow:hidden;
+        display: flex;
+        align-items: center;
+    }
+    &__image {
+        width:100%;
+        height:auto;
+    }
+    &--reverse {
+        #{$content}__row {
+            flex-direction:column-reverse;
+            @include media-breakpoint-up(sm) {
+                flex-direction:row;
+            }
+        }
+        
+    }
+}
+
+.lead {
+    @include media-breakpoint-down(lg) {
+        font-size: rfs-fluid-value(1rem);
+      }
+      
+}
