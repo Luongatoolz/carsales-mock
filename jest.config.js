@@ -25,8 +25,8 @@ module.exports = {
     //"**/*.{js,jsx}",
     //"!**/node_modules/**",
     //"!**/vendor/**"
-    "src/**/*.{js}",
-    "tests/**/*.{js}",
+    "src/**/*.{js,jsx}",
+    //"tests/**/*.{js,jsx}",
   ],
 
   // The directory where Jest should output its coverage files
@@ -44,12 +44,13 @@ module.exports = {
   coverageProvider: "v8",
 
   // A list of reporter names that Jest uses when writing coverage reports
-  // coverageReporters: [
-  //   "json",
-  //   "text",
-  //   "lcov",
-  //   "clover"
-  // ],
+  coverageReporters: [
+    "json",
+    "text",
+    "lcov",
+    "clover",
+    "html"
+  ],
 
   // An object that configures minimum threshold enforcement for coverage results
   // coverageThreshold: undefined,
@@ -62,7 +63,7 @@ module.exports = {
 
   // Force coverage collection from ignored files using an array of glob patterns
   // forceCoverageMatch: [],
-  "forceCoverageMatch": ["**/*.test.js"],
+  //"forceCoverageMatch": ["**/*.test.js"],
 
   // A path to a module which exports an async function that is triggered once before all test suites
   // globalSetup: undefined,
