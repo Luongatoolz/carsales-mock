@@ -61,17 +61,29 @@
       <div class="subscribe__scrim"></div>
       <div class="container subscribe__text">
         <div class="row">
-          <form class="col-md-8 col-lg-6 p-4 p-lg-5 mx-auto">
+          <form id="subscriber" class="col-md-8 col-lg-6 p-4 p-lg-5 mx-auto needs-validation" novalidate>
             <div class="row mb-3">
               <label for="inputName" class="col-2 col-form-label">Name</label>
               <div class="col-10">
-                <input type="text" placeholder="Name" class="form-control" id="inputName">
+                <input type="text" placeholder="Name" class="form-control" id="inputName" required>
+                <div class="invalid-feedback">
+                  Please enter your name.
+                </div>
               </div>
             </div>
             <div class="row mb-3">
               <label for="inputEmail" class="col-2 col-form-label">Email</label>
               <div class="col-10">
-                <input type="email" placeholder="Email Address" class="form-control" id="inputEmail">
+                <input type="email" placeholder="Email Address" class="form-control" id="inputEmail" 
+                required
+                pattern="^[\s]*?(?=[a-zA-Z0-9!#$%&'*+/=?^_`{|}~\-@\.]{0,254}[\s]*?$)[a-zA-Z0-9!#$%&'*+/=?^_`{|}~\-]([a-zA-Z0-9!#$%&'*+/=?^_`{|}~\-]|[\.](?![\.]|[@])){0,63}@(?:(?=[a-zA-Z0-9\-]{1,63}[\.])[a-zA-Z0-9]+(?:[\-]([a-zA-Z0-9]|[\-](?![\.]))+)*[\.]){1,}(?:(?=[a-zA-Z]{2}[a-zA-Z0-9\-]{0,61}[\s]*?$)[a-zA-Z0-9]([a-zA-Z0-9]|[\-](?=[a-zA-Z0-9\-]))*)[\s]*?$"
+                >
+                <div class="invalid-feedback">
+                  Please enter an email address.
+                </div>
+                <div id="invalidEmail" class="invalid-feedback d-none">
+                  Please enter a valid email address.
+                </div>
               </div>
             </div>
             <div class="row">
