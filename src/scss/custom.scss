@@ -1,12 +1,14 @@
 $theme-color: #412620;
 $theme-bg-color:#3E2F26;
+$theme-neutral-color: scale-color($theme-color, $lightness: 95%);
+$theme-border-color:scale-color($theme-color, $lightness: 60%);
 .hero {
     position: relative;
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
-    background-color: #ccc;
+    background-color: $theme-bg-color;
     height: 75vh;
     min-height: 320px;
 
@@ -37,7 +39,7 @@ $theme-bg-color:#3E2F26;
 
 .leading {
     color:$theme-color;
-    background-color: #F2E9E8;
+    background-color: $theme-neutral-color;
 }
 
 .content {
@@ -88,6 +90,8 @@ $theme-bg-color:#3E2F26;
 
     form {
         background:rgba(255,255,255,0.95);
+        border:4px solid $theme-neutral-color;
+        border:4px solid $theme-border-color;
     }
 
     &__image {
