@@ -1,6 +1,7 @@
 # carsales-mock
-![node ci](https://github.com/Luongatoolz/carsales-mock/actions/workflows/node.js.yml/badge.svg)
-![azure_deploy](https://github.com/Luongatoolz/carsales-mock/actions/workflows/azure.yml/badge.svg)
+![node.js ci](https://github.com/Luongatoolz/carsales-mock/actions/workflows/node.js.yml/badge.svg)
+![azure](https://github.com/Luongatoolz/carsales-mock/actions/workflows/azure.yml/badge.svg)
+[![License:MIT](https://img.shields.io/github/license/Luongatoolz/carsales-mock?color=blue)](https://github.com/Luongatoolz/carsales-mock/blob/main/LICENSE)
 
 mockup site url: https://carsaleswebapp.azurewebsites.net/
 
