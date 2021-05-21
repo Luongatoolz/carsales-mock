@@ -1,5 +1,5 @@
 # carsales-mock
-https://github.com/Luongatoolz/carsales-mock/actions/workflows/node.js.yml/badge.svg
+![example workflow](https://github.com/Luongatoolz/carsales-mock/actions/workflows/node.js.yml/badge.svg)
 
 mockup site url: https://carsaleswebapp.azurewebsites.net/
 
