@@ -21,13 +21,13 @@ module.exports = {
 
   // An array of glob patterns indicating a set of files for which coverage information should be collected
   // collectCoverageFrom: undefined,
-  // "collectCoverageFrom": [
-  //   //"**/*.{js,jsx}",
-  //   //"!**/node_modules/**",
-  //   //"!**/vendor/**"
-  //   "src/**/*.{js,jsx}",
-  //   //"tests/**/*.{js,jsx}",
-  // ],
+  "collectCoverageFrom": [
+    //"**/*.{js,jsx}",
+    //"!**/node_modules/**",
+    //"!**/vendor/**"
+    "src/js/**/*.{js,jsx}",
+    //"tests/**/*.{js,jsx}",
+  ],
 
   // The directory where Jest should output its coverage files
   coverageDirectory: "coverage",
@@ -37,11 +37,13 @@ module.exports = {
   //   "/node_modules/"
   // ],
   coveragePathIgnorePatterns: [
-    "\\\\node_modules\\\\"
+    "\\\\node_modules\\\\",
+    "\\\\dist\\\\"
   ],
 
   // Indicates which provider should be used to instrument code for coverage
-  coverageProvider: "v8",
+  //coverageProvider: "v8",
+  coverageProvider: "babel",
 
   // A list of reporter names that Jest uses when writing coverage reports
   coverageReporters: [
@@ -90,6 +92,7 @@ module.exports = {
     //"ts",
     //"tsx",
     //"node"
+    //"scss",
   ],
 
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
@@ -158,7 +161,7 @@ module.exports = {
   // testEnvironmentOptions: {},
   testEnvironmentOptions: {
     //url: "file://.", //this resolves to physical path
-    url: "https://localhost:5001",
+    //url: "https://localhost:5001",
     resources: 'usable',
     //runScripts: 'dangerously', //doesnt work
     //strictSSL: false, //doesnt work
@@ -181,12 +184,11 @@ module.exports = {
   // testPathIgnorePatterns: [
   //   "/node_modules/"
   // ],
-  testPathIgnorePatterns: [
-    "\\\\dist\\\\",
-    "\\\\node_modules\\\\",
-    "\\\\bower_components\\\\",
-    "\\\\test_exclusions\\\\",
-  ],
+  // testPathIgnorePatterns: [
+  //   "/node_modules/",
+  //   "\\\\dist\\\\",
+  //   "\\\\src\\\\settings\\\\",
+  // ],
 
   // The regexp pattern or array of patterns that Jest uses to detect test files
   // testRegex: [],
@@ -205,16 +207,25 @@ module.exports = {
 
   // A map from regular expressions to paths to transformers
   // transform: undefined,
+  transform:{
+    "^.+\\.jsx?$": "babel-jest",
+    "^.+\\.html?$": "html-loader-jest",
+    "^.+\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":'jest-transform-stub'
+    //'.+\\.(svg|png|jpe?g|gif|ttf|woff|woff2)$': 'jest-transform-stub',
+  },
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
   // transformIgnorePatterns: [
   //   "/node_modules/",
   //   "\\.pnp\\.[^\\/]+$"
   // ],
+  // transformIgnorePatterns: [
+  //   "\\\\node_modules\\\\",
+  //   "\\\\dist\\\\",
+  // ],
   transformIgnorePatterns: [
-    "\\\\node_modules\\\\",
-    "\\\\bower_components\\\\",
-    "\\\\dist\\\\",
+    "/node_modules/",
+    //"\\.pnp\\.[^\\/]+$"
   ],
 
   // An array of regexp pattern strings that are matched against all modules before the module loader will automatically return a mock for them

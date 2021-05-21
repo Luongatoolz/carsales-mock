@@ -1,0 +1,1 @@
+(self.webpackChunkcarsales_mock=self.webpackChunkcarsales_mock||[]).push([[707],{707:function(s){"use strict";s.exports=JSON.parse('{"apiUrl":"https://carsalesmockapi.azurewebsites.net"}')}}]);

@@ -2,32 +2,47 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+const ROOT_DIR = path.resolve(__dirname);
 const SRC_DIR = path.resolve(__dirname, 'src');
 const DIST_DIR = path.resolve(__dirname, 'dist');
+const EXCLUDE_MATCH = new RegExp(/node_modules|dist/);
 
-module.exports = {
+console.log('env:' + process.env.NODE_ENV);
+let config = {
   entry:{
     index: path.join(SRC_DIR,'/js/index.js')
   },
   output: {
-    filename: '[name].js',
-    path: DIST_DIR
+    filename: '[name].js?[chunkhash]',
+    path: DIST_DIR,
+    clean: true
   },
-  //mode: 'development', //important: optimises for development
-  //devtool: 'inline-source-map', //enables visual studio debugging
-   mode: 'production', 
-   devtool: false,
+   experiments: {
+    topLevelAwait: true
+  },
   module: {
     rules: [
       {
         test: /\.(js)$/,
-        exclude: /node_modules/,
+        exclude: EXCLUDE_MATCH,
         use: ['babel-loader']
+      },
+      {
+        test: /\.html$/,
+        exclude: EXCLUDE_MATCH,
+        use: [
+          {
+            loader:'html-loader',
+            options:{
+              esModule: false
+            }
+          }
+        ]
       },
       {
         test: /\.(png|jpe?g|gif|svg)$/i,
         loader: 'file-loader',
-        exclude: /node_modules/,
+        exclude: EXCLUDE_MATCH,
         options: {
           name: '[name].[ext]?[contenthash]',
           esModule: false,
@@ -36,7 +51,7 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        exclude: /node_modules/,
+        exclude: EXCLUDE_MATCH,
         use:[
           MiniCssExtractPlugin.loader,
           {
@@ -61,16 +76,16 @@ module.exports = {
   },
   resolve: {
     alias: {
-        '~': path.resolve(__dirname)
+        '~': ROOT_DIR
     },
     extensions: ['.js']
   },
   watchOptions: {
-      ignored: /node_modules/
+      ignored: EXCLUDE_MATCH
   },
   plugins: [
     new MiniCssExtractPlugin({
-        filename: "[name].css"
+        filename: "[name].css?[chunkhash]"
     }),
     new HtmlWebpackPlugin({
       inject: true,
@@ -83,3 +98,16 @@ module.exports = {
     })
   ]
 };
+
+const isProd = process.env.NODE_ENV && process.env.NODE_ENV.toLowerCase() == 'production';
+config = isProd ?
+  {...config,...{
+    mode: 'production', 
+    devtool: false,
+  }} 
+  :
+  {...config, ...{
+    mode: 'development', //important: optimises for development
+    devtool: 'inline-source-map', //enables visual studio debugging
+  }}
+module.exports = config;
