@@ -5,5 +5,6 @@
 [![License:MIT](https://img.shields.io/github/license/Luongatoolz/carsales-mock?color=blue)](https://github.com/Luongatoolz/carsales-mock/blob/main/LICENSE)
 
 mockup site url: https://carsaleswebapp.azurewebsites.net/
+github page url: https://luongatoolz.github.io/carsales-mock/dist/
 
 project board: https://github.com/Luongatoolz/carsales-mock/projects/1
